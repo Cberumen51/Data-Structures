@@ -44,7 +44,7 @@ class LinkedList:
             head_value = self.head.value
             self.head = None
             self.tail = None
-        return head_value
+            return head_value
         # otherwise we have more elements in the list
         head_value = self.head.value
         self.head = self.head.next_node
@@ -68,8 +68,14 @@ class LinkedList:
 
 
     def get_max(self):
-        while (self.head != None):
-            if( max < head.value):
-                max = head.data
-                head = head.next
+        if self.head is None:
+            return self.head
 
+        current_node = 0
+        node_after = self.head.next_node
+
+        while self.head != None:
+            if current_node <= node_after.value:
+                current_node = node_after.value
+        self.head = self.head.next_node
+        return current_node
