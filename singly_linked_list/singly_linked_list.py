@@ -2,13 +2,19 @@ class Node:
     def __init__(self, value=None, next_node=None):
         self.value = value
         self.next_node = next_node
-  
+
+    def get_value(self):
+        return self.value
+
+    def get_next(self):
+        return self.next_node
+
 
 class LinkedList:
     def __init__(self):
-        self.head = None # Stores a node, that corresponds to our first node in the list 
-        self.tail = None # stores a node that is the end of the list
-    
+        self.head = None  # Stores a node, that corresponds to our first node in the list
+        self.tail = None  # stores a node that is the end of the list
+
     def add_to_head(self, value):
         # create a node to add
         new_node = Node(value)
@@ -48,34 +54,51 @@ class LinkedList:
         # otherwise we have more elements in the list
         head_value = self.head.value
         self.head = self.head.next_node
-        return head_value 
+        return head_value
+
+    def remove_tail(self):
+        pass
+        # if not self.head:
+        #     return None
+
+        # if self.head is self.tail:
+        #     value = self.head.get_value()
+        #     self.head = None
+        #     self.tail = None
+        #     return value
+
+        # current = self.head
+
+        # while current.get_next() is not self.tail:
+        #     current = current.get_next()
+
+        # value = self.tail.get_value()
+        # self.tail = current
+        # return value
 
     def contains(self, value):
         if self.head is None:
             return False
-        
+
         # Loop through each node, until we see the value, or we cannot go further
         current_node = self.head
 
         while current_node is not None:
-        # check if this is the node we are looking for
+            # check if this is the node we are looking for
             if current_node.value == value:
                 return True
 
-        # otherwise, go to the next node
-        current_node = current_node.next_node
-        return False 
-
+            # otherwise, go to the next node
+            current_node = current_node.next_node
+        return False
 
     def get_max(self):
         if self.head is None:
-            return self.head
-
-        current_node = 0
-        node_after = self.head.next_node
-
-        while self.head != None:
-            if current_node <= node_after.value:
-                current_node = node_after.value
-        self.head = self.head.next_node
-        return current_node
+            return None
+        max_value = self.head.value
+        current = self.head.next_node
+        while current:
+            if current.value > max_value:
+                max_value = current.value
+            current = current.next_node
+        return max_value
