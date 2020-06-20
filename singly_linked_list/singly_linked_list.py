@@ -3,12 +3,6 @@ class Node:
         self.value = value
         self.next_node = next_node
 
-    def get_value(self):
-        return self.value
-
-    def get_next(self):
-        return self.next_node
-
 
 class LinkedList:
     def __init__(self):
@@ -57,24 +51,23 @@ class LinkedList:
         return head_value
 
     def remove_tail(self):
-        pass
-        # if not self.head:
-        #     return None
+        if not self.head:
+            return None
 
-        # if self.head is self.tail:
-        #     value = self.head.get_value()
-        #     self.head = None
-        #     self.tail = None
-        #     return value
+        if self.head is self.tail:
+            value = self.head.value
+            self.head = None
+            self.tail = None
+            return value
 
-        # current = self.head
+        current = self.head
 
-        # while current.get_next() is not self.tail:
-        #     current = current.get_next()
+        while current.next_node is not self.tail:
+            current = current.next_node
 
-        # value = self.tail.get_value()
-        # self.tail = current
-        # return value
+        value = self.tail.value
+        self.tail = current
+        return value
 
     def contains(self, value):
         if self.head is None:
