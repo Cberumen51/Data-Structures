@@ -17,16 +17,61 @@ class BSTNode:
 
     # Insert the given value into the tree
     def insert(self, value):
+        # take the current value of our node(self.node)
+        # compare to the new value we want to insert
+        # if there is no node insert root node
+        if root is None:
+            root = node
+        # if new value < self.value
+            # if self.left is already taken by a node
+                # make that node, call insert
+            # set the left to the new node with the new value
+        if node.value < root.value:
+            if self.self in not None:
+                self.left.insert(value)
+            
+        # if new value > self.value
+            # if self.right is already taken by a node
+                # make that node, call insert
+            # set the right to the new node with the new value
+        if node.value > root.value:
+            if self.self in not None:
+                self.right.insert(value)
+
         pass
 
     # Return True if the tree contains the value
     # False if it does not
     def contains(self, target):
-        pass
+        if current self.value == target:
+            return True
+        # compare the target to current value
+        # if current value < target
+        if self.value < target:
+            # check the left subtree
+            if self.left is None:
+                return False
+                fount = self.left.contains(target)
+            # if you cannot go left, return False
+        
+        # if current value >= target
+        if self.value >= target:
+            # check if right subtree contains target
+            # if you cannot go right return False
+            if self.right is None:
+                return False
+            fount = self.right.contains(target)
+            
+        return found
+        
 
     # Return the maximum value found in the tree
     def get_max(self):
-        pass
+        if self.right is None:
+            return max
+        else:
+            max = self.right.get_max()
+            return max
 
     # Call the function `fn` on the value of each node
     def for_each(self, fn):
